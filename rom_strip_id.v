@@ -1,12 +1,12 @@
-Module rom_strip_id(
+module rom_strip_id(
     input [3:0] addr,//height preprocessed into address, 0-9
     input clk,
     input en,//enable
-    output [3:0]Id1,// most priority
-    output [3:0]Id2,
-    output [3:0]Id3
+    output reg [3:0]Id1,// most priority
+    output reg [3:0]Id2,
+    output reg [3:0]Id3
 );
-    reg [11:0] DataReg[10];
+    reg [11:0] DataReg[9:0];
 
         
     always@(*)begin           
@@ -19,7 +19,7 @@ Module rom_strip_id(
         DataReg[6] = 12'h570;//10
         DataReg[7] = 12'h790;//11
         DataReg[8] = 12'h900;//12
-        DataReg[9] = 12'BCD;//13,14,15,16
+        DataReg[9] = 12'hBCD;//13,14,15,16
     end
     
     always@(posedge clk)begin
