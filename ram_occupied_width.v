@@ -27,7 +27,7 @@ module ram_occupied_width(
         end 
         else begin
             // Write operation
-            if (we) begin
+            if (~we) begin
                 mem[write_id] <= mem[write_id] + write_width;
             end
             // Read operation
