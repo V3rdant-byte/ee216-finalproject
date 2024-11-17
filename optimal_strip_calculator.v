@@ -1,5 +1,5 @@
 module optimal_strip_calculator(
-    input en,               // enable
+    input enclk,              // enable clock
     input [3:0] Id1,        // most priority
     input [3:0] Id2,
     input [3:0] Id3,
@@ -9,25 +9,30 @@ module optimal_strip_calculator(
     output reg [3:0] Id_optimal,
     output reg [6:0] Width_optimal
 );
+    reg [3:0] id;
+    reg [6:0] wid;
 
     always @(*) begin
-        if (en) begin
-            // Default to Width1 and Id1
-            Width_optimal = Width1;
-            Id_optimal = Id1;
+        // Default to Width1 and Id1
+        wid = Width1;
+        id = Id1;
 
-            // Compare Width2
-            if (Width2 < Width_optimal) begin
-                Width_optimal = Width2;
-                Id_optimal = Id2;
-            end
-
-            // Compare Width3
-            else if (Width3 < Width_optimal) begin
-                Width_optimal = Width3;
-                Id_optimal = Id3;
-            end
+        // Compare Width2
+        if (Width2 < wid) begin
+            wid = Width2;
+            id = Id2;
         end
+
+        // Compare Width3
+        else if (Width3 < wid) begin
+            wid = Width3;
+            id = Id3;
+        end
+    end
+
+    always @(posedge enclk) begin
+        Id_optimal <= id;
+        Width_optimal <= wid;
     end
 
 endmodule
