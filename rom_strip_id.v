@@ -6,26 +6,27 @@ module rom_strip_id(
     output reg[3:0]Id2,
     output reg[3:0]Id3
 );
-wire [11:0] DataReg[9:0];
+wire [11:0] DataID[9:0];
 
         
-assign  DataReg[0] = 12'hA80;//4
-assign  DataReg[1] = 12'h860;//5
-assign  DataReg[2] = 12'h640;//6
-assign  DataReg[3] = 12'h412;//7
-assign  DataReg[4] = 12'h123;//8
-assign  DataReg[5] = 12'h350;//9
-assign  DataReg[6] = 12'h570;//10
-assign  DataReg[7] = 12'h790;//11
-assign  DataReg[8] = 12'h900;//12
-assign  DataReg[9] = 12'hBCD;//13,14,15,16
+assign  DataID[0] = 12'h97F;//4
+assign  DataID[1] = 12'h75F;//5
+assign  DataID[2] = 12'h53F;//6
+assign  DataID[3] = 12'h301;//7
+assign  DataID[4] = 12'h012;//8
+assign  DataID[5] = 12'h24F;//9
+assign  DataID[6] = 12'h46F;//10
+assign  DataID[7] = 12'h68F;//11
+assign  DataID[8] = 12'h8FF;//12
+assign  DataID[9] = 12'hABC;//13,14,15,16
 
     
 always@(posedge clk)begin
-    if(en)
-        Id1 <= DataReg[addr][11:8];
-        Id2 <= DataReg[addr][7:4];
-        Id3 <= DataReg[addr][3:0];
+    if(en) begin
+        Id1 <= DataID[addr][11:8];
+        Id2 <= DataID[addr][7:4];
+        Id3 <= DataID[addr][3:0];
+    end
 end
 
 
