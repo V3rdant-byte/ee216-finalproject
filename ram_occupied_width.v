@@ -1,7 +1,6 @@
 module ram_occupied_width(
-    input clk,
     input rst,
-    input en,               // enable
+    input enclk,            // enable clk
     input we,               // write enable
     input [3:0] write_id,   // ID to update
     input [4:0] write_width,// New width value to add, 5 bits range from 4-16
@@ -18,7 +17,7 @@ module ram_occupied_width(
     reg [6:0] mem [0:13];
     integer i;
 
-    always @(posedge clk or posedge rst) begin
+    always @(posedge enclk or posedge rst) begin
         // Reset operation (occupied width to 0)
         if (rst) begin
             mem[13] <= 7'd127;
@@ -26,7 +25,7 @@ module ram_occupied_width(
                 mem[i] <= 7'b0;
             end
         end 
-        else if (en) begin
+        else begin
             // Write operation
             if (we) begin
                 mem[write_id] <= mem[write_id] + write_width;
