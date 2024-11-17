@@ -1,5 +1,4 @@
 module optimal_strip_calculator(
-    input clk,
     input en,               // enable
     input [3:0] Id1,        // most priority
     input [3:0] Id2,
@@ -11,7 +10,7 @@ module optimal_strip_calculator(
     output reg [6:0] Width_optimal
 );
 
-    always @(posedge clk) begin
+    always @(*) begin
         if (en) begin
             // Default to Width1 and Id1
             Width_optimal = Width1;
