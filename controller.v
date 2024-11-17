@@ -36,9 +36,9 @@ always@(posedge clk or posedge rst)begin
     end
 end
 
-assign en1 = (state==2'b00);
-assign en2 = (state==2'b01);
-assign en3 = (state==2'b10);
-assign en4 = (state==2'b11);
-assign wr_en = (state==2'b10)&(!strike);
+assign en1 = (state!=2'b00);
+assign en2 = (state!=2'b01);
+assign en3 = (state!=2'b10);
+assign en4 = (state!=2'b11);
+assign wr_en = (state!=2'b10)&(!strike);
 endmodule
