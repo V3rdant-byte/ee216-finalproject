@@ -14,15 +14,15 @@ module ram_occupied_width(
 );
 
     // Memory array to store the occupied width for each ID
-    // ID = 0, Width = 127
+    // ID = 13, Width = 127
     reg [6:0] mem [0:13];
     integer i;
 
     always @(posedge clk or posedge rst) begin
         // Reset operation (occupied width to 0)
         if (rst) begin
-            mem[0] <= 7'd127;
-            for (i = 1; i <= 13; i = i + 1) begin
+            mem[13] <= 7'd127;
+            for (i = 0; i <= 12; i = i + 1) begin
                 mem[i] <= 7'b0;
             end
         end 
