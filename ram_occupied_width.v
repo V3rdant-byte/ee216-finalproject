@@ -17,7 +17,7 @@ module ram_occupied_width(
     reg [6:0] mem [0:13];
     integer i;
 
-    always @(posedge enclk or posedge rst) begin
+    always @(posedge enclk or posedge rst or posedge we) begin
         // Reset operation (occupied width to 0)
         if (rst) begin
             mem[13] <= 7'd127;

@@ -102,6 +102,8 @@ wire [7:0] index_x_o_w;
 wire [7:0] index_y_o_w;
 wire [3:0] strike_o_w;
 
+reg [4:0] width_reg;
+
 // fsm controller
 controller controller_inst(
     .height(height_i),
@@ -153,7 +155,7 @@ ram_occupied_width ram_occupied_width_inst(
     .enclk(en4),            // enable clk
     .we(we),               // write enable
     .write_id(Id_optimal),   // ID to update
-    .write_width(Width_optimal),// New width value to add, 5 bits range from 4-16
+    .write_width(width_reg),// New width value to add, 5 bits range from 4-16
     .Id1(Id1),        // most priority
     .Id2(Id2),
     .Id3(Id3),
@@ -176,7 +178,6 @@ optimal_strip_calculator optimal_strip_calculator_inst(
 );
 
 // forward old width to cycle 5
-reg [4:0] width_reg;
 always@(posedge en1 or posedge rst_i) begin
     if (rst_i) width_reg <= 5'b0;
     else width_reg <= width;

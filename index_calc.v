@@ -11,7 +11,7 @@ module index_calc(
 
 wire rom_en = (~strike && enclk);
 reg [3:0] strike_count;
-reg [6:0] index_y;
+wire [6:0] index_y;
 
 rom_y_coord ROM_Y (.enclk(rom_en),
                     .addr(strip_id),
