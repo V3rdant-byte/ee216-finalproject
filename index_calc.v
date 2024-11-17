@@ -25,7 +25,7 @@ assign index_y_o = (strike == 1'b1) ? 8'd128 : {1'b0, index_y};
 assign index_x_o = (strike == 1'b1) ? 8'd128 : {1'b0, occupied_width};
 assign strike_o = strike_count;
 
-always(@posedge real_clk or posedge rst) begin
+always@(posedge real_clk or posedge rst) begin
     if (rst) begin
         strike_count <= 4'b0;
     end
