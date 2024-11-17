@@ -1,7 +1,6 @@
 module rom_y_coord(
     input [3:0] addr, //strip id
-    input clk,
-    input en,          //enable
+    input enclk,
     output reg[6:0] index_y // index_y of the selected strip
 );
 
@@ -21,8 +20,8 @@ assign  DataReg[10] = 7'd80;
 assign  DataReg[11] = 7'd96;
 assign  DataReg[12] = 7'd112;
 
-always@(posedge clk)begin
-    if(en) index_y <= DataReg[addr];
+always@(posedge enclk)begin
+    index_y <= DataReg[addr];
 end
 
 endmodule
