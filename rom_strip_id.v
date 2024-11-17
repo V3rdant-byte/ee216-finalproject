@@ -9,16 +9,19 @@ module rom_strip_id(
 wire [11:0] DataID[9:0];
 
         
-assign  DataID[0] = 12'h97F;//4
-assign  DataID[1] = 12'h75F;//5
-assign  DataID[2] = 12'h53F;//6
+assign  DataID[0] = 12'h97D;//4
+assign  DataID[1] = 12'h75D;//5
+assign  DataID[2] = 12'h53D;//6
 assign  DataID[3] = 12'h301;//7
 assign  DataID[4] = 12'h012;//8
-assign  DataID[5] = 12'h24F;//9
-assign  DataID[6] = 12'h46F;//10
-assign  DataID[7] = 12'h68F;//11
-assign  DataID[8] = 12'h8FF;//12
-assign  DataID[9] = 12'hABC;//13,14,15,16
+assign  DataID[5] = 12'h24D;//9
+assign  DataID[6] = 12'h46D;//10
+assign  DataID[7] = 12'h68D;//11
+assign  DataID[8] = 12'h8DD;//12
+assign  DataID[9] = 12'hABC;//13,14,15,16.
+//0 means strip id = 1;1 means strip id =2;
+//D means strip id invalid
+
 
     
 always@(posedge clk)begin
