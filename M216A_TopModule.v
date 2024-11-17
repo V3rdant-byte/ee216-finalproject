@@ -75,8 +75,27 @@ wire [4:0] width_i;
 wire [4:0] height_i;
 wire rst_i;
 
+wire height_0;
+wire en1;
+wire en2;
+wire en3;
+wire en4;
 //Add your code below 
 //Make sure to Register the outputs using the Register modules given above
+P1_Reg_5_bit input_reg_5(
+    .DataIn(height_i),
+    .DataOut(height_0),
+    .rst(rst),
+    .clk(en1)
+);
+
+preprocess p1(
+    .clk(en2),
+    .rst(rst_i),
+    .height(height_0),
+    .
+);
+
 
 
 
