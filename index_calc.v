@@ -7,7 +7,7 @@ module index_calc(
     output [7:0] index_x_o,
     output [7:0] index_y_o,
     output [3:0] strike_o
-;)
+);
 
 wire rom_en = (~strike && enclk);
 reg [3:0] strike_count;

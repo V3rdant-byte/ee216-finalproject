@@ -2,7 +2,6 @@ module preprocess(
     input [4:0]height,
     input clk,
     input rst,
-    input en,
     output reg [3:0]addr
 );
 
