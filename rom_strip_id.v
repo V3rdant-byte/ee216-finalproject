@@ -1,7 +1,6 @@
 module rom_strip_id(
     input [3:0] addr,//height preprocessed into address, 0-9
     input clk,
-    input en,//enable
     output reg[3:0]Id1,// most priority
     output reg[3:0]Id2,
     output reg[3:0]Id3
@@ -25,7 +24,7 @@ assign  DataID[9] = 12'hABC;//13,14,15,16.
 
     
 always@(posedge clk)begin
-    if(en) begin
+    begin
         Id1 <= DataID[addr][11:8];
         Id2 <= DataID[addr][7:4];
         Id3 <= DataID[addr][3:0];
