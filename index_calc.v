@@ -15,7 +15,8 @@ wire [6:0] index_y;
 
 rom_y_coord ROM_Y (.enclk(rom_en),
                     .addr(strip_id),
-                    .index_y(index_y));
+                    .index_y(index_y),
+                    .rst(rst));
 
 assign index_y_o = (strike == 1'b1) ? 8'd128 : {1'b0, index_y};
 assign index_x_o = (strike == 1'b1) ? 8'd128 : {1'b0, occupied_width};
