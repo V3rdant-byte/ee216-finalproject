@@ -25,7 +25,7 @@ module optimal_strip_calculator(
         end
 
         // Compare Width3
-        else if (Width3 < wid) begin
+        if (Width3 < wid) begin
             wid = Width3;
             id = Id3;
         end
