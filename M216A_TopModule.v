@@ -129,7 +129,8 @@ P1_Reg_5_bit input_width_reg_5(
     .DataIn(width_i),
     .DataOut(width),
     .rst(rst_i),
-    .clk(en1)
+    .clk(clk_i)
+    
 );
 
 // cycle 1
@@ -166,6 +167,7 @@ ram_occupied_width ram_occupied_width_inst(
 
 // cycle 4
 optimal_strip_calculator optimal_strip_calculator_inst(
+    .rst(rst_i),
     .enclk(en1),              // enable clock
     .Id1(Id1),        // most priority
     .Id2(Id2),
