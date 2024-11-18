@@ -7,7 +7,7 @@ module max_wdith_checker(
 );
 
 wire [7:0] sum_w = width_i + occupied_width;
-wire strike_w = (sum_w > 7'd127) ? 1'b1 : 1'b0;
+wire strike_w = (sum_w > 8'd128) ? 1'b1 : 1'b0;
 
 always @(posedge enclk or posedge rst) begin
     if (rst) strike <= 1'b0;
