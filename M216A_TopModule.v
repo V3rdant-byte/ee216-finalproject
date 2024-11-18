@@ -144,7 +144,8 @@ rom_strip_id rom_strip_id_inst(
     .clk(en3),
     .Id1(Id1),// most priority
     .Id2(Id2),
-    .Id3(Id3)
+    .Id3(Id3),
+    .rst(rst_i)
 );
 
 // cycle 3
