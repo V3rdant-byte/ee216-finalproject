@@ -16,26 +16,29 @@ module ram_occupied_width(
     // ID = 13, Width = 127
     reg [6:0] mem [0:13];
     integer i;
-
-    always @(posedge enclk or posedge rst or posedge we) begin
-        // Reset operation (occupied width to 0)
+    
+    always @ (posedge we or posedge rst) begin
         if (rst) begin
             mem[13] <= 7'd127;
             for (i = 0; i <= 12; i = i + 1) begin
                 mem[i] <= 7'b0;
             end
+        end else begin
+            mem[write_id] <= mem[write_id]+ write_width;
+        end
+    end
+               
+    always @(posedge enclk or posedge rst) begin
+        // Reset operation (occupied width to 0)
+        if (rst) begin
+            Width1 <= 7'd0;
+            Width2 <= 7'd0;
+            Width3 <= 7'd0;
         end 
         else begin
-            // Write operation
-            if (~we) begin
-                mem[write_id] <= mem[write_id] + write_width;
-            end
-            // Read operation
-            else begin
-                Width1 <= mem[Id1];
-                Width2 <= mem[Id2];
-                Width3 <= mem[Id3];
-            end 
+            Width1 <= mem[Id1];
+            Width2 <= mem[Id2];
+            Width3 <= mem[Id3];
         end
     end
 
