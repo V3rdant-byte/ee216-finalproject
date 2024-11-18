@@ -17,7 +17,7 @@ assign  DataID[5] = 12'h24D;//9
 assign  DataID[6] = 12'h46D;//10
 assign  DataID[7] = 12'h68D;//11
 assign  DataID[8] = 12'h8DD;//12
-assign  DataID[9] = 12'hABC;//13,14,15,16.
+assign  DataID[9] = 12'hCBA;//13,14,15,16.
 //0 means strip id = 1;1 means strip id =2;
 //D means strip id invalid
 
