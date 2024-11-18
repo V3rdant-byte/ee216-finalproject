@@ -26,7 +26,7 @@ module P1_Reg_5_bit (DataIn, DataOut, rst, clk);
     input clk;
     reg [4:0] DataReg;
     
-    always @(posedge clk)
+    always @(posedge clk or posedge rst)
         if(rst)
             DataReg <= 5'b0;
         else
@@ -86,7 +86,6 @@ wire [3:0] Id1;
 wire [3:0] Id2;
 wire [3:0] Id3;
 
-wire we;
 wire [3:0] write_id;
 wire [4:0] write_width;
 wire [6:0] Width1;
@@ -113,8 +112,7 @@ controller controller_inst(
     .en1(en1),
     .en2(en2),
     .en3(en3),
-    .en4(en4),
-    .wr_en(we)
+    .en4(en4)
 );
 
 // cycle 0
@@ -129,8 +127,7 @@ P1_Reg_5_bit input_width_reg_5(
     .DataIn(width_i),
     .DataOut(width),
     .rst(rst_i),
-    .clk(clk_i)
-    
+    .clk(en1)
 );
 
 // cycle 1
@@ -154,7 +151,7 @@ rom_strip_id rom_strip_id_inst(
 ram_occupied_width ram_occupied_width_inst(
     .rst(rst_i),
     .enclk(en4),            // enable clk
-    .we(we),               // write enable
+    .we(en3),               // write enable
     .write_id(Id_optimal),   // ID to update
     .write_width(width_reg),// New width value to add, 5 bits range from 4-16
     .Id1(Id1),        // most priority
@@ -162,7 +159,8 @@ ram_occupied_width ram_occupied_width_inst(
     .Id3(Id3),
     .Width1(Width1),
     .Width2(Width2),
-    .Width3(Width3)
+    .Width3(Width3),
+    .strike(strike)
 );
 
 // cycle 4
