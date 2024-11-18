@@ -7,6 +7,7 @@ module ram_occupied_width(
     input [3:0] Id1,        // most priority
     input [3:0] Id2,
     input [3:0] Id3,
+    input strike,
     output reg [6:0] Width1,
     output reg [6:0] Width2,
     output reg [6:0] Width3
@@ -24,7 +25,8 @@ module ram_occupied_width(
                 mem[i] <= 7'b0;
             end
         end else begin
-            mem[write_id] <= mem[write_id]+ write_width;
+            if(!strike)
+                mem[write_id] <= mem[write_id]+ write_width;
         end
     end
                
