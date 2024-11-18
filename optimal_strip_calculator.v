@@ -1,5 +1,6 @@
 module optimal_strip_calculator(
     input enclk,              // enable clock
+    input rst,
     input [3:0] Id1,        // most priority
     input [3:0] Id2,
     input [3:0] Id3,
@@ -30,9 +31,15 @@ module optimal_strip_calculator(
         end
     end
 
-    always @(posedge enclk) begin
-        Id_optimal <= id;
-        Width_optimal <= wid;
+    always @(posedge enclk or posedge rst) begin
+        if (rst) begin
+            Id_optimal <= 4'd0;
+            Width_optimal <= 7'd0;
+        end
+        else begin
+            Id_optimal <= id;
+            Width_optimal <= wid;
+        end
     end
 
 endmodule
