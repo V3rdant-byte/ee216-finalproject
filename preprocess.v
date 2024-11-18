@@ -10,7 +10,7 @@ assign sub4 = height - 4;
 
 always@(posedge clk or posedge rst)begin
     if(rst)
-        addr <= 0;
+        addr <= 4'd4;
     else
         addr <= (sub4[3:0] >= 9)? 9 : sub4[3:0];
 end
