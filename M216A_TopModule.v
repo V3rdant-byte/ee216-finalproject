@@ -26,7 +26,7 @@ module P1_Reg_5_bit (DataIn, DataOut, rst, clk);
     input clk;
     reg [4:0] DataReg;
     
-    always @(posedge clk or posedge rst)
+    always @(posedge clk)
         if(rst)
             DataReg <= 5'b0;
         else
@@ -102,6 +102,7 @@ wire [7:0] index_y_o_w;
 wire [3:0] strike_o_w;
 
 reg [4:0] width_reg;
+reg rst_flag;
 
 // fsm controller
 controller controller_inst(
@@ -180,8 +181,13 @@ optimal_strip_calculator optimal_strip_calculator_inst(
 
 // forward old width to cycle 5
 always@(posedge en1 or posedge rst_i) begin
-    if (rst_i) width_reg <= 5'b0;
-    else width_reg <= width;
+    if (rst_i) begin
+	    width_reg <= 5'b0;
+        rst_flag <= 1'b1;
+    end else if (rst_flag) begin
+        width_reg <= 5'b0;
+        rst_flag <= 1'b0;
+    end else width_reg <= width;
 end
 
 // cycle 5
