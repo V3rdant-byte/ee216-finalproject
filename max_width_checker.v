@@ -2,7 +2,7 @@ module max_wdith_checker(
     input enclk,
     input rst,
     input [4:0] width_i,
-    input [6:0] occupied_width,
+    input [7:0] occupied_width,
     output reg strike
 );
 

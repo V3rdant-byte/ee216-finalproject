@@ -88,12 +88,12 @@ wire [3:0] Id3;
 
 wire [3:0] write_id;
 wire [4:0] write_width;
-wire [6:0] Width1;
-wire [6:0] Width2;
-wire [6:0] Width3;
+wire [7:0] Width1;
+wire [7:0] Width2;
+wire [7:0] Width3;
 
 wire [3:0] Id_optimal;
-wire [6:0] Width_optimal;
+wire [7:0] Width_optimal;
 
 wire strike;
 

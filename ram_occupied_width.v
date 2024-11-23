@@ -8,21 +8,21 @@ module ram_occupied_width(
     input [3:0] Id2,
     input [3:0] Id3,
     input strike,
-    output reg [6:0] Width1,
-    output reg [6:0] Width2,
-    output reg [6:0] Width3
+    output reg [7:0] Width1,
+    output reg [7:0] Width2,
+    output reg [7:0] Width3
 );
 
     // Memory array to store the occupied width for each ID
     // ID = 13, Width = 127
-    reg [6:0] mem [0:13];
+    reg [7:0] mem [0:13];
     integer i;
     
     always @ (posedge we or posedge rst) begin
         if (rst) begin
-            mem[13] <= 7'd127;
+            mem[13] <= 8'd255;
             for (i = 0; i <= 12; i = i + 1) begin
-                mem[i] <= 7'b0;
+                mem[i] <= 8'b0;
             end
         end else begin
             if(!strike)
@@ -33,9 +33,9 @@ module ram_occupied_width(
     always @(posedge enclk or posedge rst) begin
         // Reset operation (occupied width to 0)
         if (rst) begin
-            Width1 <= 7'd0;
-            Width2 <= 7'd0;
-            Width3 <= 7'd0;
+            Width1 <= 8'd0;
+            Width2 <= 8'd0;
+            Width3 <= 8'd0;
         end 
         else begin
             Width1 <= mem[Id1];

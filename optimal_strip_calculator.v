@@ -4,14 +4,14 @@ module optimal_strip_calculator(
     input [3:0] Id1,        // most priority
     input [3:0] Id2,
     input [3:0] Id3,
-    input [6:0] Width1,
-    input [6:0] Width2,
-    input [6:0] Width3,
+    input [7:0] Width1,
+    input [7:0] Width2,
+    input [7:0] Width3,
     output reg [3:0] Id_optimal,
-    output reg [6:0] Width_optimal
+    output reg [7:0] Width_optimal
 );
     reg [3:0] id;
-    reg [6:0] wid;
+    reg [7:0] wid;
 
     always @(*) begin
         // Default to Width1 and Id1
@@ -34,7 +34,7 @@ module optimal_strip_calculator(
     always @(posedge enclk or posedge rst) begin
         if (rst) begin
             Id_optimal <= 4'd0;
-            Width_optimal <= 7'd0;
+            Width_optimal <= 8'd0;
         end
         else begin
             Id_optimal <= id;
