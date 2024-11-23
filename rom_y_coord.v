@@ -24,7 +24,8 @@ assign  DataReg[12] = 7'd112;
 always@(posedge enclk or rst)begin
     if(rst)
         index_y <= 7'd0;
-    index_y <= DataReg[addr];
+    else
+        index_y <= DataReg[addr];
 end
 
 endmodule
