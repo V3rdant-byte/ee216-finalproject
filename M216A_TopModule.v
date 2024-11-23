@@ -26,7 +26,7 @@ module P1_Reg_5_bit (DataIn, DataOut, rst, clk);
     input clk;
     reg [4:0] DataReg;
     
-    always @(posedge clk or posedge rst)
+    always @(posedge clk)
         if(rst)
             DataReg <= 5'b0;
         else
@@ -120,20 +120,21 @@ P1_Reg_5_bit input_height_reg_5(
     .DataIn(height_i),
     .DataOut(height),
     .rst(rst_i),
-    .clk(en1)
+    .clk(clk_i)
 );
 
 P1_Reg_5_bit input_width_reg_5(
     .DataIn(width_i),
     .DataOut(width),
     .rst(rst_i),
-    .clk(en1)
+    .clk(clk_i)
 );
 
 // cycle 1
 preprocess p1(
-    .clk(en2),
+    .clk(clk_i),
     .rst(rst_i),
+    .en(en2),
     .height(height),
     .addr(strip_ID_addr)
 );
@@ -141,7 +142,8 @@ preprocess p1(
 // cycle 2
 rom_strip_id rom_strip_id_inst(
     .addr(strip_ID_addr),//height preprocessed into address, 0-9
-    .clk(en3),
+    .clk(clk_i),
+    .en(en3),
     .Id1(Id1),// most priority
     .Id2(Id2),
     .Id3(Id3),
@@ -151,7 +153,8 @@ rom_strip_id rom_strip_id_inst(
 // cycle 3
 ram_occupied_width ram_occupied_width_inst(
     .rst(rst_i),
-    .enclk(en4),            // enable clk
+    .clk(clk_i),            // enable clk
+    .en(en4),
     .we(en3),               // write enable
     .write_id(Id_optimal),   // ID to update
     .write_width(width_reg),// New width value to add, 5 bits range from 4-16
@@ -167,7 +170,8 @@ ram_occupied_width ram_occupied_width_inst(
 // cycle 4
 optimal_strip_calculator optimal_strip_calculator_inst(
     .rst(rst_i),
-    .enclk(en1),              // enable clock
+    .clk(clk_i),              // enable clock
+    .en(en1),
     .Id1(Id1),        // most priority
     .Id2(Id2),
     .Id3(Id3),
@@ -179,14 +183,15 @@ optimal_strip_calculator optimal_strip_calculator_inst(
 );
 
 // forward old width to cycle 5
-always@(posedge en1 or posedge rst_i) begin
+always@(posedge clk_i) begin
     if (rst_i) width_reg <= 5'b0;
-    else width_reg <= width;
+    else if (en1) width_reg <= width;
 end
 
 // cycle 5
 max_wdith_checker max_wdith_checker_inst(
-    .enclk(en2),
+    .clk(clk_i),
+    .en(en2),
     .rst(rst_i),
     .width_i(width_reg),
     .occupied_width(Width_optimal),
@@ -195,7 +200,8 @@ max_wdith_checker max_wdith_checker_inst(
 
 // cycle 6
 index_calc index_calc_inst(
-    .enclk(en3),
+    .clk(clk_i),
+    .en(en3),
     .rst(rst_i),
     .strike(strike),
     .strip_id(Id_optimal),
@@ -210,21 +216,21 @@ P1_Reg_8_bit output_width_reg_8(
     .DataIn(index_x_o_w), 
     .DataOut(index_x_o), 
     .rst(rst_i), 
-    .clk(en4)
+    .clk(clk_i)
 );
 
 P1_Reg_8_bit output_height_reg_8(
     .DataIn(index_y_o_w), 
     .DataOut(index_y_o), 
     .rst(rst_i), 
-    .clk(en4)
+    .clk(clk_i)
 );
 
 P1_Reg_4_bit output_strike_reg_4(
     .DataIn(strike_o_w), 
     .DataOut(strike_o), 
     .rst(rst_i), 
-    .clk(en4)
+    .clk(clk_i)
 );
 
 endmodule
