@@ -9,20 +9,22 @@ module controller(
     output en4
 );
 
-wire start1;
-assign start1 = (height!=5'b0);
-reg start2;
-
+wire start_w;
+assign start_w = (height!=5'b0);
+reg start_r;
 
 reg [1:0]state;
 
-always@(posedge clk or posedge rst)begin
+always@(posedge clk) begin
+    if (rst) start_r <= 1'b0;
+    if (start_w) start_r <= 1'b1;
+end
+
+always@(posedge clk)begin
     if(rst) begin
         state <= 2'b00;
-        start2 <= 1'b0;
     end
-    else if(start1 || start2) begin
-        start2 <= 1'b1;
+    else if(start_w || start_r) begin
         case(state)
             2'b00:begin
                 state <= 2'b01;
@@ -40,8 +42,8 @@ always@(posedge clk or posedge rst)begin
     end
 end
 
-assign en1 = (state!=2'b00);
-assign en2 = (state!=2'b01);
-assign en3 = (state!=2'b10);
-assign en4 = (state!=2'b11);
+assign en1 = (state==2'b00);
+assign en2 = (state==2'b01);
+assign en3 = (state==2'b10);
+assign en4 = (state==2'b11);
 endmodule
