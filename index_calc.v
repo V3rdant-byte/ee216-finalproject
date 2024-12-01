@@ -3,7 +3,7 @@ module index_calc(
     input rst,
     input strike,
     input [3:0] strip_id,
-    input [6:0] occupied_width,
+    input [7:0] occupied_width,
     output [7:0] index_x_o,
     output [7:0] index_y_o,
     output [3:0] strike_o
