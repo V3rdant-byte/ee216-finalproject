@@ -21,7 +21,7 @@ assign  DataReg[10] = 7'd80;
 assign  DataReg[11] = 7'd96;
 assign  DataReg[12] = 7'd112;
 
-always@(posedge enclk or rst)begin
+always@(posedge enclk or posedge rst)begin
     if(rst)
         index_y <= 7'd0;
     else
