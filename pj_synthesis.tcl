@@ -13,7 +13,7 @@ set synthetic_library "dw_foundation.sldb"
 
 # Define work path (note: The work path must exist, so you need to create a folder WORK first)
 define_design_lib WORK -path ./WORK
-set alib_library_analysis_path �./alib-52/�
+set alib_library_analysis_path "./alib-52/"
 
 # Read in the Verilog design files
 analyze -format verilog { M216A_TopModule.v }
