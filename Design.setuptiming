@@ -7,7 +7,7 @@ Report : timing
         -max_paths 10
 Design : M216A_TopModule
 Version: M-2016.12-SP2
-Date   : Sun Dec  1 15:56:59 2024
+Date   : Fri Dec  6 16:00:52 2024
 ****************************************
 
 Operating Conditions: ss0p95v125c   Library: saed32rvt_ss0p95v125c
@@ -28,14 +28,14 @@ Wire Load Model Mode: enclosed
   --------------------------------------------------------------------------
   clock clk_i (rise edge)                                 0.00       0.00
   clock network delay (ideal)                             0.00       0.00
-  input external delay                                    0.60       0.60 r
-  height_i[2] (in)                                        0.00       0.60 r
-  U2064/Y (OR3X1_RVT)                                     0.02       0.62 r
-  U2063/Y (OR4X1_RVT)                                     0.04       0.66 r
-  U2090/Y (INVX1_RVT)                                     0.01       0.67 f
-  U1919/Y (OAI221X1_RVT)                                  0.03       0.70 r
-  controller_inst/state_reg[1]/D (DFFARX1_RVT)            0.00       0.70 r
-  data arrival time                                                  0.70
+  input external delay                                    0.50       0.50 r
+  height_i[2] (in)                                        0.00       0.50 r
+  U2135/Y (OR3X2_RVT)                                     0.03       0.53 r
+  U2134/Y (OR4X1_RVT)                                     0.04       0.56 r
+  U2088/Y (INVX1_RVT)                                     0.01       0.57 f
+  U1919/Y (OAI221X1_RVT)                                  0.03       0.61 r
+  controller_inst/state_reg[1]/D (DFFARX1_RVT)            0.00       0.61 r
+  data arrival time                                                  0.61
 
   clock clk_i (rise edge)                                 0.82       0.82
   clock network delay (ideal)                             0.00       0.82
@@ -45,9 +45,9 @@ Wire Load Model Mode: enclosed
   data required time                                                 0.71
   --------------------------------------------------------------------------
   data required time                                                 0.71
-  data arrival time                                                 -0.70
+  data arrival time                                                 -0.61
   --------------------------------------------------------------------------
-  slack (MET)                                                        0.00
+  slack (MET)                                                        0.10
 
 
   Startpoint: height_i[2]
@@ -65,14 +65,14 @@ Wire Load Model Mode: enclosed
   --------------------------------------------------------------------------
   clock clk_i (rise edge)                                 0.00       0.00
   clock network delay (ideal)                             0.00       0.00
-  input external delay                                    0.60       0.60 r
-  height_i[2] (in)                                        0.00       0.60 r
-  U2064/Y (OR3X1_RVT)                                     0.02       0.62 r
-  U2063/Y (OR4X1_RVT)                                     0.04       0.66 r
-  U2090/Y (INVX1_RVT)                                     0.01       0.67 f
-  U2136/Y (XNOR2X1_RVT)                                   0.03       0.70 r
-  controller_inst/state_reg[0]/D (DFFARX1_RVT)            0.00       0.70 r
-  data arrival time                                                  0.70
+  input external delay                                    0.50       0.50 r
+  height_i[2] (in)                                        0.00       0.50 r
+  U2135/Y (OR3X2_RVT)                                     0.03       0.53 r
+  U2134/Y (OR4X1_RVT)                                     0.04       0.56 r
+  U2088/Y (INVX1_RVT)                                     0.01       0.57 f
+  U2136/Y (XNOR2X1_RVT)                                   0.03       0.61 r
+  controller_inst/state_reg[0]/D (DFFARX1_RVT)            0.00       0.61 r
+  data arrival time                                                  0.61
 
   clock clk_i (rise edge)                                 0.82       0.82
   clock network delay (ideal)                             0.00       0.82
@@ -82,9 +82,9 @@ Wire Load Model Mode: enclosed
   data required time                                                 0.70
   --------------------------------------------------------------------------
   data required time                                                 0.70
-  data arrival time                                                 -0.70
+  data arrival time                                                 -0.61
   --------------------------------------------------------------------------
-  slack (MET)                                                        0.00
+  slack (MET)                                                        0.10
 
 
   Startpoint: height_i[4]
@@ -102,14 +102,14 @@ Wire Load Model Mode: enclosed
   --------------------------------------------------------------------------
   clock clk_i (rise edge)                                 0.00       0.00
   clock network delay (ideal)                             0.00       0.00
-  input external delay                                    0.60       0.60 r
-  height_i[4] (in)                                        0.00       0.60 r
-  U2064/Y (OR3X1_RVT)                                     0.02       0.62 r
-  U2063/Y (OR4X1_RVT)                                     0.04       0.66 r
-  U2090/Y (INVX1_RVT)                                     0.01       0.67 f
-  U1919/Y (OAI221X1_RVT)                                  0.03       0.70 r
-  controller_inst/state_reg[1]/D (DFFARX1_RVT)            0.00       0.70 r
-  data arrival time                                                  0.70
+  input external delay                                    0.50       0.50 r
+  height_i[4] (in)                                        0.00       0.50 r
+  U2135/Y (OR3X2_RVT)                                     0.02       0.52 r
+  U2134/Y (OR4X1_RVT)                                     0.04       0.56 r
+  U2088/Y (INVX1_RVT)                                     0.01       0.57 f
+  U1919/Y (OAI221X1_RVT)                                  0.03       0.60 r
+  controller_inst/state_reg[1]/D (DFFARX1_RVT)            0.00       0.60 r
+  data arrival time                                                  0.60
 
   clock clk_i (rise edge)                                 0.82       0.82
   clock network delay (ideal)                             0.00       0.82
@@ -119,9 +119,9 @@ Wire Load Model Mode: enclosed
   data required time                                                 0.71
   --------------------------------------------------------------------------
   data required time                                                 0.71
-  data arrival time                                                 -0.70
+  data arrival time                                                 -0.60
   --------------------------------------------------------------------------
-  slack (MET)                                                        0.00
+  slack (MET)                                                        0.10
 
 
   Startpoint: height_i[4]
@@ -139,14 +139,14 @@ Wire Load Model Mode: enclosed
   --------------------------------------------------------------------------
   clock clk_i (rise edge)                                 0.00       0.00
   clock network delay (ideal)                             0.00       0.00
-  input external delay                                    0.60       0.60 r
-  height_i[4] (in)                                        0.00       0.60 r
-  U2064/Y (OR3X1_RVT)                                     0.02       0.62 r
-  U2063/Y (OR4X1_RVT)                                     0.04       0.66 r
-  U2090/Y (INVX1_RVT)                                     0.01       0.67 f
-  U2136/Y (XNOR2X1_RVT)                                   0.03       0.70 r
-  controller_inst/state_reg[0]/D (DFFARX1_RVT)            0.00       0.70 r
-  data arrival time                                                  0.70
+  input external delay                                    0.50       0.50 r
+  height_i[4] (in)                                        0.00       0.50 r
+  U2135/Y (OR3X2_RVT)                                     0.02       0.52 r
+  U2134/Y (OR4X1_RVT)                                     0.04       0.56 r
+  U2088/Y (INVX1_RVT)                                     0.01       0.57 f
+  U2136/Y (XNOR2X1_RVT)                                   0.03       0.60 r
+  controller_inst/state_reg[0]/D (DFFARX1_RVT)            0.00       0.60 r
+  data arrival time                                                  0.60
 
   clock clk_i (rise edge)                                 0.82       0.82
   clock network delay (ideal)                             0.00       0.82
@@ -156,9 +156,9 @@ Wire Load Model Mode: enclosed
   data required time                                                 0.70
   --------------------------------------------------------------------------
   data required time                                                 0.70
-  data arrival time                                                 -0.70
+  data arrival time                                                 -0.60
   --------------------------------------------------------------------------
-  slack (MET)                                                        0.01
+  slack (MET)                                                        0.10
 
 
   Startpoint: height_i[2]
@@ -176,12 +176,12 @@ Wire Load Model Mode: enclosed
   --------------------------------------------------------------------------
   clock clk_i (rise edge)                                 0.00       0.00
   clock network delay (ideal)                             0.00       0.00
-  input external delay                                    0.60       0.60 r
-  height_i[2] (in)                                        0.00       0.60 r
-  U2064/Y (OR3X1_RVT)                                     0.02       0.62 r
-  U2063/Y (OR4X1_RVT)                                     0.04       0.66 r
-  controller_inst/start2_reg/D (DFFARX1_RVT)              0.00       0.66 r
-  data arrival time                                                  0.66
+  input external delay                                    0.50       0.50 r
+  height_i[2] (in)                                        0.00       0.50 r
+  U2135/Y (OR3X2_RVT)                                     0.03       0.53 r
+  U2134/Y (OR4X1_RVT)                                     0.04       0.56 r
+  controller_inst/start2_reg/D (DFFARX1_RVT)              0.00       0.56 r
+  data arrival time                                                  0.56
 
   clock clk_i (rise edge)                                 0.82       0.82
   clock network delay (ideal)                             0.00       0.82
@@ -191,9 +191,9 @@ Wire Load Model Mode: enclosed
   data required time                                                 0.71
   --------------------------------------------------------------------------
   data required time                                                 0.71
-  data arrival time                                                 -0.66
+  data arrival time                                                 -0.56
   --------------------------------------------------------------------------
-  slack (MET)                                                        0.05
+  slack (MET)                                                        0.14
 
 
   Startpoint: height_i[4]
@@ -211,12 +211,12 @@ Wire Load Model Mode: enclosed
   --------------------------------------------------------------------------
   clock clk_i (rise edge)                                 0.00       0.00
   clock network delay (ideal)                             0.00       0.00
-  input external delay                                    0.60       0.60 r
-  height_i[4] (in)                                        0.00       0.60 r
-  U2064/Y (OR3X1_RVT)                                     0.02       0.62 r
-  U2063/Y (OR4X1_RVT)                                     0.04       0.66 r
-  controller_inst/start2_reg/D (DFFARX1_RVT)              0.00       0.66 r
-  data arrival time                                                  0.66
+  input external delay                                    0.50       0.50 r
+  height_i[4] (in)                                        0.00       0.50 r
+  U2135/Y (OR3X2_RVT)                                     0.02       0.52 r
+  U2134/Y (OR4X1_RVT)                                     0.04       0.56 r
+  controller_inst/start2_reg/D (DFFARX1_RVT)              0.00       0.56 r
+  data arrival time                                                  0.56
 
   clock clk_i (rise edge)                                 0.82       0.82
   clock network delay (ideal)                             0.00       0.82
@@ -226,9 +226,9 @@ Wire Load Model Mode: enclosed
   data required time                                                 0.71
   --------------------------------------------------------------------------
   data required time                                                 0.71
-  data arrival time                                                 -0.66
+  data arrival time                                                 -0.56
   --------------------------------------------------------------------------
-  slack (MET)                                                        0.05
+  slack (MET)                                                        0.15
 
 
 1

@@ -3,7 +3,7 @@
 Report : area
 Design : M216A_TopModule
 Version: M-2016.12-SP2
-Date   : Sun Dec  1 15:56:59 2024
+Date   : Fri Dec  6 16:00:52 2024
 ****************************************
 
 Library(s) Used:
@@ -17,7 +17,7 @@ Number of combinational cells:            646
 Number of sequential cells:               215
 Number of macros/black boxes:               0
 Number of buf/inv:                         63
-Number of references:                      30
+Number of references:                      29
 
 Combinational area:               1581.792271
 Buf/Inv area:                      102.165891

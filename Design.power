@@ -9,7 +9,7 @@ Report : power
         -analysis_effort low
 Design : M216A_TopModule
 Version: M-2016.12-SP2
-Date   : Sun Dec  1 15:57:00 2024
+Date   : Fri Dec  6 16:00:53 2024
 ****************************************
 
 
@@ -39,5 +39,5 @@ Power-specific unit information :
                                        Switch   Int      Leak     Total
 Hierarchy                              Power    Power    Power    Power    %
 --------------------------------------------------------------------------------
-M216A_TopModule                          54.951  384.781 6.35e+09 6.79e+03 100.0
+M216A_TopModule                          55.074  385.219 6.35e+09 6.79e+03 100.0
 1

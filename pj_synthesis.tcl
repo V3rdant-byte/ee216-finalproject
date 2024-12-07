@@ -37,9 +37,9 @@ set_operating_conditions -min ff1p16vn40c -max ss0p95v125c
 # Describe the clock waveform & setup operating conditions
 set Tclk_i 0.82
 set TCU  0.1
-set IN_DEL 0.6
+set IN_DEL 0.5
 set IN_DEL_MIN 0.3
-set OUT_DEL 0.6
+set OUT_DEL 0.5
 set OUT_DEL_MIN 0.3
 set ALL_IN_BUT_CLK [remove_from_collection [all_inputs] "clk_i"]
 
