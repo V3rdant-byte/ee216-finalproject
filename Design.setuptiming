@@ -7,7 +7,7 @@ Report : timing
         -max_paths 10
 Design : M216A_TopModule
 Version: M-2016.12-SP2
-Date   : Fri Dec  6 16:00:52 2024
+Date   : Fri Dec  6 17:40:22 2024
 ****************************************
 
 Operating Conditions: ss0p95v125c   Library: saed32rvt_ss0p95v125c
@@ -28,26 +28,26 @@ Wire Load Model Mode: enclosed
   --------------------------------------------------------------------------
   clock clk_i (rise edge)                                 0.00       0.00
   clock network delay (ideal)                             0.00       0.00
-  input external delay                                    0.50       0.50 r
-  height_i[2] (in)                                        0.00       0.50 r
-  U2135/Y (OR3X2_RVT)                                     0.03       0.53 r
-  U2134/Y (OR4X1_RVT)                                     0.04       0.56 r
-  U2088/Y (INVX1_RVT)                                     0.01       0.57 f
-  U1919/Y (OAI221X1_RVT)                                  0.03       0.61 r
-  controller_inst/state_reg[1]/D (DFFARX1_RVT)            0.00       0.61 r
-  data arrival time                                                  0.61
+  input external delay                                    0.03       0.03 r
+  height_i[2] (in)                                        0.00       0.03 r
+  U2135/Y (OR3X2_RVT)                                     0.03       0.06 r
+  U2134/Y (OR4X1_RVT)                                     0.04       0.09 r
+  U2088/Y (INVX1_RVT)                                     0.01       0.10 f
+  U1919/Y (OAI221X1_RVT)                                  0.03       0.14 r
+  controller_inst/state_reg[1]/D (DFFARX1_RVT)            0.00       0.14 r
+  data arrival time                                                  0.14
 
-  clock clk_i (rise edge)                                 0.82       0.82
-  clock network delay (ideal)                             0.00       0.82
-  clock uncertainty                                      -0.10       0.72
-  controller_inst/state_reg[1]/CLK (DFFARX1_RVT)          0.00       0.72 r
-  library setup time                                     -0.01       0.71
-  data required time                                                 0.71
+  clock clk_i (rise edge)                                 0.28       0.28
+  clock network delay (ideal)                             0.00       0.28
+  clock uncertainty                                      -0.10       0.18
+  controller_inst/state_reg[1]/CLK (DFFARX1_RVT)          0.00       0.18 r
+  library setup time                                     -0.01       0.17
+  data required time                                                 0.17
   --------------------------------------------------------------------------
-  data required time                                                 0.71
-  data arrival time                                                 -0.61
+  data required time                                                 0.17
+  data arrival time                                                 -0.14
   --------------------------------------------------------------------------
-  slack (MET)                                                        0.10
+  slack (MET)                                                        0.03
 
 
   Startpoint: height_i[2]
@@ -65,30 +65,30 @@ Wire Load Model Mode: enclosed
   --------------------------------------------------------------------------
   clock clk_i (rise edge)                                 0.00       0.00
   clock network delay (ideal)                             0.00       0.00
-  input external delay                                    0.50       0.50 r
-  height_i[2] (in)                                        0.00       0.50 r
-  U2135/Y (OR3X2_RVT)                                     0.03       0.53 r
-  U2134/Y (OR4X1_RVT)                                     0.04       0.56 r
-  U2088/Y (INVX1_RVT)                                     0.01       0.57 f
-  U2136/Y (XNOR2X1_RVT)                                   0.03       0.61 r
-  controller_inst/state_reg[0]/D (DFFARX1_RVT)            0.00       0.61 r
-  data arrival time                                                  0.61
+  input external delay                                    0.03       0.03 r
+  height_i[2] (in)                                        0.00       0.03 r
+  U2135/Y (OR3X2_RVT)                                     0.03       0.06 r
+  U2134/Y (OR4X1_RVT)                                     0.04       0.09 r
+  U2088/Y (INVX1_RVT)                                     0.01       0.10 f
+  U2136/Y (XNOR2X1_RVT)                                   0.03       0.14 r
+  controller_inst/state_reg[0]/D (DFFARX1_RVT)            0.00       0.14 r
+  data arrival time                                                  0.14
 
-  clock clk_i (rise edge)                                 0.82       0.82
-  clock network delay (ideal)                             0.00       0.82
-  clock uncertainty                                      -0.10       0.72
-  controller_inst/state_reg[0]/CLK (DFFARX1_RVT)          0.00       0.72 r
-  library setup time                                     -0.02       0.70
-  data required time                                                 0.70
+  clock clk_i (rise edge)                                 0.28       0.28
+  clock network delay (ideal)                             0.00       0.28
+  clock uncertainty                                      -0.10       0.18
+  controller_inst/state_reg[0]/CLK (DFFARX1_RVT)          0.00       0.18 r
+  library setup time                                     -0.02       0.16
+  data required time                                                 0.16
   --------------------------------------------------------------------------
-  data required time                                                 0.70
-  data arrival time                                                 -0.61
+  data required time                                                 0.16
+  data arrival time                                                 -0.14
   --------------------------------------------------------------------------
-  slack (MET)                                                        0.10
+  slack (MET)                                                        0.03
 
 
-  Startpoint: height_i[4]
-              (input port clocked by clk_i)
+  Startpoint: controller_inst/start2_reg
+              (rising edge-triggered flip-flop clocked by clk_i)
   Endpoint: controller_inst/state_reg[1]
             (rising edge-triggered flip-flop clocked by clk_i)
   Path Group: clk_i
@@ -102,30 +102,29 @@ Wire Load Model Mode: enclosed
   --------------------------------------------------------------------------
   clock clk_i (rise edge)                                 0.00       0.00
   clock network delay (ideal)                             0.00       0.00
-  input external delay                                    0.50       0.50 r
-  height_i[4] (in)                                        0.00       0.50 r
-  U2135/Y (OR3X2_RVT)                                     0.02       0.52 r
-  U2134/Y (OR4X1_RVT)                                     0.04       0.56 r
-  U2088/Y (INVX1_RVT)                                     0.01       0.57 f
-  U1919/Y (OAI221X1_RVT)                                  0.03       0.60 r
-  controller_inst/state_reg[1]/D (DFFARX1_RVT)            0.00       0.60 r
-  data arrival time                                                  0.60
+  controller_inst/start2_reg/CLK (DFFARX1_RVT)            0.00       0.00 r
+  controller_inst/start2_reg/Q (DFFARX1_RVT)              0.05       0.05 r
+  U2134/Y (OR4X1_RVT)                                     0.04       0.09 r
+  U2088/Y (INVX1_RVT)                                     0.01       0.10 f
+  U1919/Y (OAI221X1_RVT)                                  0.03       0.14 r
+  controller_inst/state_reg[1]/D (DFFARX1_RVT)            0.00       0.14 r
+  data arrival time                                                  0.14
 
-  clock clk_i (rise edge)                                 0.82       0.82
-  clock network delay (ideal)                             0.00       0.82
-  clock uncertainty                                      -0.10       0.72
-  controller_inst/state_reg[1]/CLK (DFFARX1_RVT)          0.00       0.72 r
-  library setup time                                     -0.01       0.71
-  data required time                                                 0.71
+  clock clk_i (rise edge)                                 0.28       0.28
+  clock network delay (ideal)                             0.00       0.28
+  clock uncertainty                                      -0.10       0.18
+  controller_inst/state_reg[1]/CLK (DFFARX1_RVT)          0.00       0.18 r
+  library setup time                                     -0.01       0.17
+  data required time                                                 0.17
   --------------------------------------------------------------------------
-  data required time                                                 0.71
-  data arrival time                                                 -0.60
+  data required time                                                 0.17
+  data arrival time                                                 -0.14
   --------------------------------------------------------------------------
-  slack (MET)                                                        0.10
+  slack (MET)                                                        0.03
 
 
-  Startpoint: height_i[4]
-              (input port clocked by clk_i)
+  Startpoint: controller_inst/start2_reg
+              (rising edge-triggered flip-flop clocked by clk_i)
   Endpoint: controller_inst/state_reg[0]
             (rising edge-triggered flip-flop clocked by clk_i)
   Path Group: clk_i
@@ -139,26 +138,25 @@ Wire Load Model Mode: enclosed
   --------------------------------------------------------------------------
   clock clk_i (rise edge)                                 0.00       0.00
   clock network delay (ideal)                             0.00       0.00
-  input external delay                                    0.50       0.50 r
-  height_i[4] (in)                                        0.00       0.50 r
-  U2135/Y (OR3X2_RVT)                                     0.02       0.52 r
-  U2134/Y (OR4X1_RVT)                                     0.04       0.56 r
-  U2088/Y (INVX1_RVT)                                     0.01       0.57 f
-  U2136/Y (XNOR2X1_RVT)                                   0.03       0.60 r
-  controller_inst/state_reg[0]/D (DFFARX1_RVT)            0.00       0.60 r
-  data arrival time                                                  0.60
+  controller_inst/start2_reg/CLK (DFFARX1_RVT)            0.00       0.00 r
+  controller_inst/start2_reg/Q (DFFARX1_RVT)              0.05       0.05 r
+  U2134/Y (OR4X1_RVT)                                     0.04       0.09 r
+  U2088/Y (INVX1_RVT)                                     0.01       0.10 f
+  U2136/Y (XNOR2X1_RVT)                                   0.03       0.13 r
+  controller_inst/state_reg[0]/D (DFFARX1_RVT)            0.00       0.13 r
+  data arrival time                                                  0.13
 
-  clock clk_i (rise edge)                                 0.82       0.82
-  clock network delay (ideal)                             0.00       0.82
-  clock uncertainty                                      -0.10       0.72
-  controller_inst/state_reg[0]/CLK (DFFARX1_RVT)          0.00       0.72 r
-  library setup time                                     -0.02       0.70
-  data required time                                                 0.70
+  clock clk_i (rise edge)                                 0.28       0.28
+  clock network delay (ideal)                             0.00       0.28
+  clock uncertainty                                      -0.10       0.18
+  controller_inst/state_reg[0]/CLK (DFFARX1_RVT)          0.00       0.18 r
+  library setup time                                     -0.02       0.16
+  data required time                                                 0.16
   --------------------------------------------------------------------------
-  data required time                                                 0.70
-  data arrival time                                                 -0.60
+  data required time                                                 0.16
+  data arrival time                                                 -0.13
   --------------------------------------------------------------------------
-  slack (MET)                                                        0.10
+  slack (MET)                                                        0.03
 
 
   Startpoint: height_i[2]
@@ -176,28 +174,28 @@ Wire Load Model Mode: enclosed
   --------------------------------------------------------------------------
   clock clk_i (rise edge)                                 0.00       0.00
   clock network delay (ideal)                             0.00       0.00
-  input external delay                                    0.50       0.50 r
-  height_i[2] (in)                                        0.00       0.50 r
-  U2135/Y (OR3X2_RVT)                                     0.03       0.53 r
-  U2134/Y (OR4X1_RVT)                                     0.04       0.56 r
-  controller_inst/start2_reg/D (DFFARX1_RVT)              0.00       0.56 r
-  data arrival time                                                  0.56
+  input external delay                                    0.03       0.03 r
+  height_i[2] (in)                                        0.00       0.03 r
+  U2135/Y (OR3X2_RVT)                                     0.03       0.06 r
+  U2134/Y (OR4X1_RVT)                                     0.04       0.09 r
+  controller_inst/start2_reg/D (DFFARX1_RVT)              0.00       0.09 r
+  data arrival time                                                  0.09
 
-  clock clk_i (rise edge)                                 0.82       0.82
-  clock network delay (ideal)                             0.00       0.82
-  clock uncertainty                                      -0.10       0.72
-  controller_inst/start2_reg/CLK (DFFARX1_RVT)            0.00       0.72 r
-  library setup time                                     -0.01       0.71
-  data required time                                                 0.71
+  clock clk_i (rise edge)                                 0.28       0.28
+  clock network delay (ideal)                             0.00       0.28
+  clock uncertainty                                      -0.10       0.18
+  controller_inst/start2_reg/CLK (DFFARX1_RVT)            0.00       0.18 r
+  library setup time                                     -0.01       0.17
+  data required time                                                 0.17
   --------------------------------------------------------------------------
-  data required time                                                 0.71
-  data arrival time                                                 -0.56
+  data required time                                                 0.17
+  data arrival time                                                 -0.09
   --------------------------------------------------------------------------
-  slack (MET)                                                        0.14
+  slack (MET)                                                        0.07
 
 
-  Startpoint: height_i[4]
-              (input port clocked by clk_i)
+  Startpoint: controller_inst/start2_reg
+              (rising edge-triggered flip-flop clocked by clk_i)
   Endpoint: controller_inst/start2_reg
             (rising edge-triggered flip-flop clocked by clk_i)
   Path Group: clk_i
@@ -211,24 +209,23 @@ Wire Load Model Mode: enclosed
   --------------------------------------------------------------------------
   clock clk_i (rise edge)                                 0.00       0.00
   clock network delay (ideal)                             0.00       0.00
-  input external delay                                    0.50       0.50 r
-  height_i[4] (in)                                        0.00       0.50 r
-  U2135/Y (OR3X2_RVT)                                     0.02       0.52 r
-  U2134/Y (OR4X1_RVT)                                     0.04       0.56 r
-  controller_inst/start2_reg/D (DFFARX1_RVT)              0.00       0.56 r
-  data arrival time                                                  0.56
+  controller_inst/start2_reg/CLK (DFFARX1_RVT)            0.00       0.00 r
+  controller_inst/start2_reg/Q (DFFARX1_RVT)              0.05       0.05 r
+  U2134/Y (OR4X1_RVT)                                     0.04       0.09 r
+  controller_inst/start2_reg/D (DFFARX1_RVT)              0.00       0.09 r
+  data arrival time                                                  0.09
 
-  clock clk_i (rise edge)                                 0.82       0.82
-  clock network delay (ideal)                             0.00       0.82
-  clock uncertainty                                      -0.10       0.72
-  controller_inst/start2_reg/CLK (DFFARX1_RVT)            0.00       0.72 r
-  library setup time                                     -0.01       0.71
-  data required time                                                 0.71
+  clock clk_i (rise edge)                                 0.28       0.28
+  clock network delay (ideal)                             0.00       0.28
+  clock uncertainty                                      -0.10       0.18
+  controller_inst/start2_reg/CLK (DFFARX1_RVT)            0.00       0.18 r
+  library setup time                                     -0.01       0.17
+  data required time                                                 0.17
   --------------------------------------------------------------------------
-  data required time                                                 0.71
-  data arrival time                                                 -0.56
+  data required time                                                 0.17
+  data arrival time                                                 -0.09
   --------------------------------------------------------------------------
-  slack (MET)                                                        0.15
+  slack (MET)                                                        0.08
 
 
 1
