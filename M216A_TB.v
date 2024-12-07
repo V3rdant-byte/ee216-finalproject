@@ -3,7 +3,7 @@
 module M216A_TB;
 
 // Parameters
-parameter hp = 68;
+parameter hp = 72;
 parameter TEST_FILE_INPUT = "input_test.txt";
 parameter TEST_FILE_OUTPUT = "output_test.txt";
 
