@@ -1,8 +1,9 @@
-`timescale 1ns/1ps
+`timescale 10ps/1ps
 
 module M216A_TB;
 
 // Parameters
+parameter hp = 68;
 parameter TEST_FILE_INPUT = "input_test.txt";
 parameter TEST_FILE_OUTPUT = "output_test.txt";
 
@@ -36,7 +37,7 @@ M216A_TopModule uut (
 
 // Clock generation
 always begin
-  #1 clk = ~clk;
+  #hp clk = ~clk;
 end
 
 // Test stimulus
@@ -50,7 +51,7 @@ initial begin
   latency_check = 1;
 
   // Apply reset
-  #20 rst = 1'b0;
+  #(20*hp) rst = 1'b0;
 
   // Open files for input and output
   input_file = $fopen(TEST_FILE_INPUT, "r");
@@ -64,7 +65,7 @@ initial begin
       else begin
         file_data_input = $fscanf(input_file, "%d %d\n", height_i, width_i);
       end
-      #8; // Wait for 4 clock cycles
+      #(8*hp); // Wait for 4 clock cycles
     end
   join
 end
@@ -74,13 +75,13 @@ initial begin
   expected_index_x = 5'b00000;
   expected_index_y = 5'b00000;
   
-  #20;
+  #(20*hp);
   output_file = $fopen(TEST_FILE_OUTPUT, "r");
   
   fork
     forever @(posedge clk) begin
       if (first_iteration) begin
-        #16; // Wait for 8 clock cycles only for the first iteration
+        #(16*hp); // Wait for 8 clock cycles only for the first iteration
         first_iteration = 1'b0; // Set to 0 after the first iteration
       end
 
@@ -105,20 +106,20 @@ initial begin
 
       // Check output values and compare with expected output
       file_data_output = $fscanf(output_file, "%d %d\n", expected_index_x, expected_index_y);
-      #8;
+      #(8*hp);
     end
   join
 end
 
 initial begin
-  #38;
+  #(38*hp);
   fork
     forever begin
       if ((index_x_o != expected_index_x) || (index_y_o != expected_index_y)) begin
         $display("Test failed! Expected: %d %d, Actual: %d %d\n", expected_index_x, expected_index_y, index_x_o, index_y_o);
 	count = count + 1;
       end
-      #8;
+      #(8*hp);
     end
   join
 end
@@ -131,7 +132,7 @@ initial begin
 			latency_check = 0;
 		end
 	end
-	#2;
+	#(2*hp);
     end
   join
 end
