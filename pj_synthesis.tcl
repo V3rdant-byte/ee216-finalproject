@@ -13,7 +13,7 @@ set synthetic_library "dw_foundation.sldb"
 
 # Define work path (note: The work path must exist, so you need to create a folder WORK first)
 define_design_lib WORK -path ./WORK
-set alib_library_analysis_path "./alib-52/"
+set alib_library_analysis_path �./alib-52/�
 
 # Read in the Verilog design files
 analyze -format verilog { M216A_TopModule.v }
@@ -35,7 +35,7 @@ link
 set_operating_conditions -min ff1p16vn40c -max ss0p95v125c
 
 # Describe the clock waveform & setup operating conditions
-set Tclk_i 0.28
+set Tclk_i 1.36
 set TCU  0.1
 set IN_DEL 0.03
 set IN_DEL_MIN 0.02
