@@ -1,10 +1,24 @@
+'''
+Description: 
+
+This script generates random test cases for the problem statement. 
+You can ramdomly generate the input and output files by setting mode=0.
+Or you can generate the output file using the provided input file by setting mode=1.
+The output_gen.txt file contains the x and y coordinates of the programs. 
+The strike.txt file contains the number of programs that could not be placed.
+
+Considering limited bitwidth of strike output, there might be overflow, 
+e.g., bitwidth is 4, but the number of strikes is 100. So strike output of 100%16=4 will be correct
+
+
+'''
 import random
 # hyperparameters including file path
 path = "./"
 input_file_name = "input_gen.txt"
 output_file_name = "output_gen.txt"
 mode = 0  #mode=0: random input and output; mode=1: generate output using provided input txt
-input_n=200 #number of input if mode=0
+input_n = 700 #number of input if mode=0
 
 #initialize the input
 global occupied_width
